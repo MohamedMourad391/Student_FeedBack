@@ -1,4 +1,11 @@
 # Student_FeedBack
+This project involves building a data engineering pipeline to analyze student feedback. It includes:
+
+Collecting feedback data from various sources.
+Transforming and organizing the data into a data warehouse using SQL Server Integration Services (SSIS).
+Developing a sentiment analysis machine learning model using Python.
+Deploying a web application to showcase the sentiment analysis model.
+The aim is to demonstrate an end-to-end workflow for data engineering and machine learning in the education domain.
 
 # Abstract
 
