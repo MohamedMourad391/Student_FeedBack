@@ -1,5 +1,7 @@
 # Student_FeedBack
-Abstract
+
+# Abstract
+
 This project outlines a comprehensive approach to analyzing and improving student feedback through advanced data management and machine learning techniques.
 
 SQL database designed and populated with student feedback data.
@@ -8,7 +10,8 @@ Python scripts for data preprocessing and sentiment analysis.
 MLOps techniques to deploy models via a dashboard, enabling real-time monitoring and feedback improvement.
 Outcomes showcase data-driven insights to enhance the student learning experience by targeting areas for improvement in teaching and course content.
 
-Introduction
+# Introduction
+
 Continuous improvement based on student feedback is essential in education. This project:
 
 Builds a structured SQL database.
@@ -55,30 +58,6 @@ Preprocess feedback text.
 Categorize as positive, neutral, or negative using NLTK tools.
 4. MLOps and Deployment
 Create a simple web page for sentiment prediction using Flask in VS Code.
-Example Queries
-Extract all courses a student is enrolled in:
-sql
-Copy code
-SELECT Courses.CourseName  
-FROM students  
-JOIN Courses ON students.CourseCode = Courses.CourseCode  
-WHERE StudentID = 1001;  
-Summarize student grades by course:
-sql
-Copy code
-SELECT S_ID, AVG(Courses.score_Grade) AS AverageGrade  
-FROM Courses.Student_course  
-GROUP BY CID;  
-Find top-performing students:
-sql
-Copy code
-SELECT S_ID, AVG(Courses.score_Grade) AS AverageGrade  
-FROM Courses.Student_course  
-GROUP BY S_ID  
-ORDER BY AverageGrade DESC;  
-Technologies Used
-SQL Server
-Python
 Flask
 NLTK
 Azure Data Services
