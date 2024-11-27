@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/12/2024 2:56:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-GIGKDJV"
+  DTS:CreatorName="DESKTOP-GIGKDJV\Dell"
+  DTS:DTSID="{F2D2B2B4-F153-487C-B258-B1DF762DD86A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimFeedbackQuestion"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{DBC31E92-00D5-4E93-A951-385F432BF1EC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT-Dim FeedbackQuestion-ETL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2A56123B-533B-4D14-A0F3-DA61173EABF9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT-Dim FeedbackQuestion-ETL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination Dim FeedbackQuestion"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dim_feedbackquestions]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Connections[OleDbConnection]"
+                  connectionManagerID="{99C1941B-DA72-4E7C-B2D0-82AACEE124F7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DestinationData]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Inputs[OLE DB Destination Input].Columns[QuestionID]"
+                      cachedDataType="i4"
+                      cachedName="QuestionID"
+                      externalMetadataColumnId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Inputs[OLE DB Destination Input].ExternalColumns[question_id]"
+                      lineageId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].Columns[QuestionID]" />
+                    <inputColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Inputs[OLE DB Destination Input].Columns[QuestionText]"
+                      cachedDataType="nText"
+                      cachedName="QuestionText"
+                      externalMetadataColumnId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Inputs[OLE DB Destination Input].ExternalColumns[question_tex]"
+                      lineageId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].Columns[QuestionText]" />
+                    <inputColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Inputs[OLE DB Destination Input].Columns[QuestionCategory]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="QuestionCategory"
+                      externalMetadataColumnId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Inputs[OLE DB Destination Input].ExternalColumns[question_category]"
+                      lineageId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].Columns[QuestionCategory]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Inputs[OLE DB Destination Input].ExternalColumns[question_key]"
+                      dataType="i4"
+                      name="question_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Inputs[OLE DB Destination Input].ExternalColumns[question_id]"
+                      dataType="i4"
+                      name="question_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Inputs[OLE DB Destination Input].ExternalColumns[question_tex]"
+                      dataType="nText"
+                      name="question_tex" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Inputs[OLE DB Destination Input].ExternalColumns[question_category]"
+                      dataType="wstr"
+                      length="50"
+                      name="question_category" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source FeedbackQuestions table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * 
+from Feedback.Feedback_Questions</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Connections[OleDbConnection]"
+                  connectionManagerID="{898BEEEA-255C-4AD5-AC52-7B7E6BABE938}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SourceData]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].Columns[QuestionID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].ExternalColumns[QuestionID]"
+                      lineageId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].Columns[QuestionID]"
+                      name="QuestionID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].Columns[QuestionCategory]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].ExternalColumns[QuestionCategory]"
+                      length="50"
+                      lineageId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].Columns[QuestionCategory]"
+                      name="QuestionCategory"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].Columns[QuestionText]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].ExternalColumns[QuestionText]"
+                      lineageId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].Columns[QuestionText]"
+                      name="QuestionText"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].ExternalColumns[QuestionID]"
+                      dataType="i4"
+                      name="QuestionID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].ExternalColumns[QuestionCategory]"
+                      dataType="wstr"
+                      length="50"
+                      name="QuestionCategory" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output].ExternalColumns[QuestionText]"
+                      dataType="nText"
+                      name="QuestionText" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Error Output].Columns[QuestionID]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Error Output].Columns[QuestionID]"
+                      name="QuestionID" />
+                    <outputColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Error Output].Columns[QuestionCategory]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Error Output].Columns[QuestionCategory]"
+                      name="QuestionCategory" />
+                    <outputColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Error Output].Columns[QuestionText]"
+                      dataType="nText"
+                      lineageId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Error Output].Columns[QuestionText]"
+                      name="QuestionText" />
+                    <outputColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT-Dim FeedbackQuestion-ETL.Paths[OLE DB Source Output]"
+              endId="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="231,42"
+          Id="Package\DFT-Dim FeedbackQuestion-ETL"
+          TopLeft="165.5,20.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT-Dim FeedbackQuestion-ETL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="232,42"
+          Id="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table"
+          TopLeft="246.5,23.5" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion"
+          TopLeft="343,130" />
+        <EdgeLayout
+          Id="Package\DFT-Dim FeedbackQuestion-ETL.Paths[OLE DB Source Output]"
+          TopLeft="362.5,65.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="102,64.5"
+              Start="0,0"
+              End="102,57">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.25"
+                    Point2="0,32.25"
+                    Point3="4,32.25" />
+                  <mssgle:LineSegment
+                    End="98,32.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="98,32.25"
+                    Point2="102,32.25"
+                    Point3="102,36.25" />
+                  <mssgle:LineSegment
+                    End="102,57" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-Dim FeedbackQuestion-ETL\Source FeedbackQuestions table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-Dim FeedbackQuestion-ETL\Destination Dim FeedbackQuestion">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

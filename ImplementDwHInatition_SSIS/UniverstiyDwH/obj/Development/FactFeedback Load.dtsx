@@ -1,0 +1,1952 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/12/2024 3:29:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-GIGKDJV"
+  DTS:CreatorName="DESKTOP-GIGKDJV\Dell"
+  DTS:DTSID="{EBB68A56-6A39-4431-A898-C240DDF501F4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FactFeedback Load"
+  DTS:PackageType="5"
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{4CE10A55-A59A-45B5-9577-A25BBEE96A4F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT-Fact Feedback ETL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BABCDCFF-C437-49D2-B3BB-45666AB70271}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT-Fact Feedback ETL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT-Fact Feedback ETL\DVD- Replace Null"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DVD- Replace Null"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Inputs[Derived Column Input].Columns[open_questions]"
+                      cachedDataType="nText"
+                      cachedName="open_questions"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[open_questions]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[open_questions]}) ? "Unknown" : (DT_WSTR,4000)#{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[open_questions]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(open_questions) ? "Unknown" : (DT_WSTR,4000)open_questions</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Inputs[Derived Column Input].Columns[course_page_evaluation]"
+                      cachedDataType="i4"
+                      cachedName="course_page_evaluation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[course_page_evaluation]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[course_page_evaluation]}) ? 0 : #{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[course_page_evaluation]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(course_page_evaluation) ? 0 : course_page_evaluation</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Inputs[Derived Column Input].Columns[exam_evaluation]"
+                      cachedDataType="i4"
+                      cachedName="exam_evaluation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[exam_evaluation]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[exam_evaluation]}) ? 0 : #{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[exam_evaluation]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(exam_evaluation) ? 0 : exam_evaluation</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Inputs[Derived Column Input].Columns[instructor_evaluation]"
+                      cachedDataType="i4"
+                      cachedName="instructor_evaluation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[instructor_evaluation]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[instructor_evaluation]}) ? 0 : #{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[instructor_evaluation]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(instructor_evaluation) ? 0 : instructor_evaluation</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Inputs[Derived Column Input].Columns[cource_evaluation]"
+                      cachedDataType="i4"
+                      cachedName="cource_evaluation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[cource_evaluation]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[cource_evaluation]}) ? 0 : #{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[cource_evaluation]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(cource_evaluation) ? 0 : cource_evaluation</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-Fact Feedback ETL\LKP- Score"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP- Score"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT SC.S_ID,SC.CID,SC.score_percent 
+FROM Cources.Student_cource SC</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT SC.S_ID,SC.CID,SC.score_percent 
+FROM Cources.Student_cource SC) [refTable]
+where [refTable].[S_ID] = ? and [refTable].[CID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="S_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="score_percent" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[S_ID]};#{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[CID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-Fact Feedback ETL\LKP- Score.Connections[OleDbConnection]"
+                  connectionManagerID="{898BEEEA-255C-4AD5-AC52-7B7E6BABE938}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SourceData]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-Fact Feedback ETL\LKP- Score.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP- Score.Inputs[Lookup Input].Columns[S_ID]"
+                      cachedDataType="i4"
+                      cachedName="S_ID"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[S_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">S_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP- Score.Inputs[Lookup Input].Columns[CID]"
+                      cachedDataType="i4"
+                      cachedName="CID"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[CID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP- Score.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP- Score.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP- Score.Outputs[Lookup Match Output].Columns[score_percent]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP- Score.Outputs[Lookup Match Output].Columns[score_percent]"
+                      name="score_percent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">score_percent</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP- Score.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP- Score.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP- Score.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP- Score.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP- Score.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP- Score.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP- Score.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP- Score.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-Fact Feedback ETL\LKP-Course"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP-Course"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select C_key ,C_ID
+from dim_cource ;</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select C_key ,C_ID
+from dim_cource ;) [refTable]
+where [refTable].[C_ID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="C_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="C_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[CID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Course.Connections[OleDbConnection]"
+                  connectionManagerID="{99C1941B-DA72-4E7C-B2D0-82AACEE124F7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DestinationData]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Course.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Course.Inputs[Lookup Input].Columns[CID]"
+                      cachedDataType="i4"
+                      cachedName="CID"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[CID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">C_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Course.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP-Course.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Course.Outputs[Lookup Match Output].Columns[C_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Course.Outputs[Lookup Match Output].Columns[C_key]"
+                      name="C_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">C_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Course.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP-Course.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Course.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP-Course.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Course.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Course.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Course.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Course.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-Fact Feedback ETL\LKP-Instructor"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP-Instructor"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select ins_key,ins_id
+from dim_instructor ;</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select ins_key,ins_id
+from dim_instructor ;) [refTable]
+where [refTable].[ins_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ins_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ins_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT-Fact Feedback ETL\DVD- Replace Null.Inputs[Derived Column Input]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Connections[OleDbConnection]"
+                  connectionManagerID="{99C1941B-DA72-4E7C-B2D0-82AACEE124F7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DestinationData]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Inputs[Lookup Input].Columns[InsId]"
+                      cachedDataType="i4"
+                      cachedName="InsId"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[InsId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ins_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Outputs[Lookup Match Output].Columns[ins_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Outputs[Lookup Match Output].Columns[ins_key]"
+                      name="ins_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ins_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-Fact Feedback ETL\LKP-Questions"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP-Questions"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select question_key,question_id
+from dim_feedbackquestions
+;</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select question_key,question_id
+from dim_feedbackquestions
+;) [refTable]
+where [refTable].[question_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="question_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="question_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[QuestionID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Questions.Connections[OleDbConnection]"
+                  connectionManagerID="{99C1941B-DA72-4E7C-B2D0-82AACEE124F7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DestinationData]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Questions.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Questions.Inputs[Lookup Input].Columns[QuestionID]"
+                      cachedDataType="i4"
+                      cachedName="QuestionID"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[QuestionID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">question_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Questions.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP-Questions.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Questions.Outputs[Lookup Match Output].Columns[question_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Questions.Outputs[Lookup Match Output].Columns[question_key]"
+                      name="question_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">question_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Questions.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP-Questions.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Questions.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP-Questions.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Questions.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Questions.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Questions.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Questions.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-Fact Feedback ETL\LKP-Student"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP-Student"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select S_key ,S_ID 
+from dim_student;</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select S_key ,S_ID 
+from dim_student;) [refTable]
+where [refTable].[S_ID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="S_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="S_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[S_ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Student.Connections[OleDbConnection]"
+                  connectionManagerID="{99C1941B-DA72-4E7C-B2D0-82AACEE124F7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DestinationData]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Student.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Student.Inputs[Lookup Input].Columns[S_ID]"
+                      cachedDataType="i4"
+                      cachedName="S_ID"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[S_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">S_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Student.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP-Student.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Student.Outputs[Lookup Match Output].Columns[S_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Student.Outputs[Lookup Match Output].Columns[S_key]"
+                      name="S_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">S_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Student.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP-Student.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\LKP-Student.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\LKP-Student.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Student.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Student.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\LKP-Student.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Student.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-Fact Feedback ETL\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[fact_feedback]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{99C1941B-DA72-4E7C-B2D0-82AACEE124F7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DestinationData]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[open_questions]"
+                      cachedDataType="nText"
+                      cachedName="open_questions"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[open_questions]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[open_questions]" />
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[exam_evaluation]"
+                      cachedDataType="i4"
+                      cachedName="exam_evaluation"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[exam_evaluation]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[exam_evaluation]" />
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[instructor_evaluation]"
+                      cachedDataType="i4"
+                      cachedName="instructor_evaluation"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[instructor_evaluation]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[instructor_evaluation]" />
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cource_evaluation]"
+                      cachedDataType="i4"
+                      cachedName="cource_evaluation"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cource_evaluation]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[cource_evaluation]" />
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[score_percent]"
+                      cachedDataType="r8"
+                      cachedName="score_percent"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_percent]"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP- Score.Outputs[Lookup Match Output].Columns[score_percent]" />
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[S_key]"
+                      cachedDataType="i4"
+                      cachedName="S_key"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[S_key]"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Student.Outputs[Lookup Match Output].Columns[S_key]" />
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[C_key]"
+                      cachedDataType="i4"
+                      cachedName="C_key"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[C_key]"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Course.Outputs[Lookup Match Output].Columns[C_key]" />
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[question_key]"
+                      cachedDataType="i4"
+                      cachedName="question_key"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_key]"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Questions.Outputs[Lookup Match Output].Columns[question_key]" />
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ins_key]"
+                      cachedDataType="i4"
+                      cachedName="ins_key"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ins_key]"
+                      lineageId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Outputs[Lookup Match Output].Columns[ins_key]" />
+                    <inputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[course_page_evaluation]"
+                      cachedDataType="i4"
+                      cachedName="course_page_evaluation"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cource_page_evaluation]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[course_page_evaluation]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fact_key]"
+                      dataType="i4"
+                      name="fact_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[S_key]"
+                      dataType="i4"
+                      name="S_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[C_key]"
+                      dataType="i4"
+                      name="C_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[question_key]"
+                      dataType="i4"
+                      name="question_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ins_key]"
+                      dataType="i4"
+                      name="ins_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cource_evaluation]"
+                      dataType="i4"
+                      name="cource_evaluation" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[instructor_evaluation]"
+                      dataType="i4"
+                      name="instructor_evaluation" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[exam_evaluation]"
+                      dataType="i4"
+                      name="exam_evaluation" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cource_page_evaluation]"
+                      dataType="i4"
+                      name="cource_page_evaluation" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[open_questions]"
+                      dataType="nText"
+                      name="open_questions" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[score_percent]"
+                      dataType="r8"
+                      name="score_percent" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[created_at]"
+                      dataType="dbTimeStamp"
+                      name="created_at" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-Fact Feedback ETL\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Feedback].[Student_Feedback]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+
+SR.S_ID,
+SR.CID,	
+fq.QuestionID,
+HI.InsId,
+SR.open_questions,
+SR.course_page_evaluation,
+SR.exam_evaluation,
+SR.instructor_evaluation,
+SR.cource_evaluation
+
+FROM Sort_Response SR join 
+Feedback.Feedback_Questions fq  
+on fq.QuestionID=SR.QuestionID
+
+join Cources.cource CC on CC.CID=SR.CID 
+
+join HumanResources.Instructor HI on CC.InsID=HI.InsId</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{898BEEEA-255C-4AD5-AC52-7B7E6BABE938}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SourceData]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[S_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[S_ID]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[S_ID]"
+                      name="S_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[CID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CID]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[CID]"
+                      name="CID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[open_questions]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[open_questions]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[open_questions]"
+                      name="open_questions"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[course_page_evaluation]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[course_page_evaluation]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[course_page_evaluation]"
+                      name="course_page_evaluation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[exam_evaluation]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[exam_evaluation]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[exam_evaluation]"
+                      name="exam_evaluation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[instructor_evaluation]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[instructor_evaluation]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[instructor_evaluation]"
+                      name="instructor_evaluation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[QuestionID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QuestionID]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[QuestionID]"
+                      name="QuestionID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[cource_evaluation]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cource_evaluation]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[cource_evaluation]"
+                      name="cource_evaluation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[InsId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InsId]"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].Columns[InsId]"
+                      name="InsId"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[S_ID]"
+                      dataType="i4"
+                      name="S_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CID]"
+                      dataType="i4"
+                      name="CID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[open_questions]"
+                      dataType="nText"
+                      name="open_questions" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[course_page_evaluation]"
+                      dataType="i4"
+                      name="course_page_evaluation" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[exam_evaluation]"
+                      dataType="i4"
+                      name="exam_evaluation" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[instructor_evaluation]"
+                      dataType="i4"
+                      name="instructor_evaluation" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QuestionID]"
+                      dataType="i4"
+                      name="QuestionID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cource_evaluation]"
+                      dataType="i4"
+                      name="cource_evaluation" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InsId]"
+                      dataType="i4"
+                      name="InsId" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[S_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[S_ID]"
+                      name="S_ID" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CID]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CID]"
+                      name="CID" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QuestionID]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QuestionID]"
+                      name="QuestionID" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InsId]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InsId]"
+                      name="InsId" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[open_questions]"
+                      dataType="nText"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[open_questions]"
+                      name="open_questions" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[course_page_evaluation]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[course_page_evaluation]"
+                      name="course_page_evaluation" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[exam_evaluation]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[exam_evaluation]"
+                      name="exam_evaluation" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[instructor_evaluation]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[instructor_evaluation]"
+                      name="instructor_evaluation" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cource_evaluation]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cource_evaluation]"
+                      name="cource_evaluation" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT-Fact Feedback ETL.Paths[Derived Column Output]"
+              endId="Package\DFT-Fact Feedback ETL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT-Fact Feedback ETL.Paths[Lookup Match Output]"
+              endId="Package\DFT-Fact Feedback ETL\LKP-Course.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT-Fact Feedback ETL\LKP-Student.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT-Fact Feedback ETL.Paths[Lookup Match Output1]"
+              endId="Package\DFT-Fact Feedback ETL\LKP-Student.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT-Fact Feedback ETL\LKP- Score.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT-Fact Feedback ETL.Paths[Lookup Match Output2]"
+              endId="Package\DFT-Fact Feedback ETL\LKP-Questions.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT-Fact Feedback ETL\LKP-Course.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT-Fact Feedback ETL.Paths[Lookup Match Output3]"
+              endId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT-Fact Feedback ETL\LKP-Questions.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT-Fact Feedback ETL.Paths[Lookup Match Output4]"
+              endId="Package\DFT-Fact Feedback ETL\DVD- Replace Null.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT-Fact Feedback ETL\LKP-Instructor.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT-Fact Feedback ETL.Paths[OLE DB Source Output]"
+              endId="Package\DFT-Fact Feedback ETL\LKP- Score.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT-Fact Feedback ETL\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="190,42"
+          Id="Package\DFT-Fact Feedback ETL"
+          TopLeft="76,123" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT-Fact Feedback ETL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="147,42"
+          Id="Package\DFT-Fact Feedback ETL\LKP-Questions"
+          TopLeft="36.0000000000001,413.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DFT-Fact Feedback ETL\OLE DB Destination"
+          TopLeft="24.0000000000001,719.5" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\DFT-Fact Feedback ETL\LKP-Instructor"
+          TopLeft="36.0000000000001,515.5" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\DFT-Fact Feedback ETL\LKP-Student"
+          TopLeft="41,209.5" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\DFT-Fact Feedback ETL\LKP- Score"
+          TopLeft="424.5,168.928571428571" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DFT-Fact Feedback ETL\OLE DB Source"
+          TopLeft="518.785714285714,71.2142857142857" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\DFT-Fact Feedback ETL\DVD- Replace Null"
+          TopLeft="334.071428571429,540.357142857143" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\DFT-Fact Feedback ETL\LKP-Course"
+          TopLeft="43,311.5" />
+        <EdgeLayout
+          Id="Package\DFT-Fact Feedback ETL.Paths[OLE DB Source Output]"
+          TopLeft="593.785714285714,113.214285714286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-104.285714285714,55.7142857142857"
+              Start="0,0"
+              End="-104.285714285714,48.2142857142857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.8571428571428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.8571428571428"
+                    Point2="0,27.8571428571428"
+                    Point3="-4,27.8571428571428" />
+                  <mssgle:LineSegment
+                    End="-100.285714285714,27.8571428571428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-100.285714285714,27.8571428571428"
+                    Point2="-104.285714285714,27.8571428571428"
+                    Point3="-104.285714285714,31.8571428571428" />
+                  <mssgle:LineSegment
+                    End="-104.285714285714,48.2142857142857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-Fact Feedback ETL.Paths[Lookup Match Output4]"
+          TopLeft="183,536.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="151.071428571429,24.857142857143"
+              Start="0,0"
+              End="143.571428571429,24.857142857143">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="71.5357142857144,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71.5357142857144,0"
+                    Point2="75.5357142857144,0"
+                    Point3="75.5357142857144,4" />
+                  <mssgle:LineSegment
+                    End="75.5357142857144,20.857142857143" />
+                  <mssgle:CubicBezierSegment
+                    Point1="75.5357142857144,20.857142857143"
+                    Point2="75.5357142857144,24.857142857143"
+                    Point3="79.5357142857144,24.857142857143" />
+                  <mssgle:LineSegment
+                    End="143.571428571429,24.857142857143" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="27.3443275669644,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-Fact Feedback ETL.Paths[Lookup Match Output3]"
+          TopLeft="109.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-Fact Feedback ETL.Paths[Lookup Match Output2]"
+          TopLeft="109.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-Fact Feedback ETL.Paths[Lookup Match Output1]"
+          TopLeft="424.5,189.928571428571">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-246.5,40.5714285714286"
+              Start="0,0"
+              End="-239,40.5714285714286">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-119.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-119.25,0"
+                    Point2="-123.25,0"
+                    Point3="-123.25,4" />
+                  <mssgle:LineSegment
+                    End="-123.25,36.5714285714286" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-123.25,36.5714285714286"
+                    Point2="-123.25,40.5714285714286"
+                    Point3="-127.25,40.5714285714286" />
+                  <mssgle:LineSegment
+                    End="-239,40.5714285714286" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-171.44138671875,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-Fact Feedback ETL.Paths[Lookup Match Output]"
+          TopLeft="109.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-Fact Feedback ETL.Paths[Derived Column Output]"
+          TopLeft="416.571428571429,582.357142857143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-307.071428571429,137.142857142857"
+              Start="0,0"
+              End="-307.071428571429,129.642857142857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5714285714285" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,64.5714285714285"
+                    Point2="0,68.5714285714285"
+                    Point3="-4,68.5714285714285" />
+                  <mssgle:LineSegment
+                    End="-303.071428571429,68.5714285714285" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-303.071428571429,68.5714285714285"
+                    Point2="-307.071428571429,68.5714285714285"
+                    Point3="-307.071428571429,72.5714285714285" />
+                  <mssgle:LineSegment
+                    End="-307.071428571429,129.642857142857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-Fact Feedback ETL\LKP-Questions">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-Fact Feedback ETL\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-Fact Feedback ETL\LKP-Instructor">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-Fact Feedback ETL\LKP-Student">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-Fact Feedback ETL\LKP- Score">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-Fact Feedback ETL\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-Fact Feedback ETL\LKP-Course">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,521 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/12/2024 2:36:44 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-GIGKDJV"
+  DTS:CreatorName="DESKTOP-GIGKDJV\Dell"
+  DTS:DTSID="{2DA0498E-95BA-4400-89A9-74E979AFBF1B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimCourse"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{E75918B1-4784-4317-A21E-E64ADA3E41FF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT-DimCourse-ETL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{98D80D7D-075E-4FCD-B6D3-3CEA5E407C0A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT-DimCourse-ETL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT-DimCourse-ETL\Destination Dim Course"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination Dim Course"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dim_cource]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Connections[OleDbConnection]"
+                  connectionManagerID="{99C1941B-DA72-4E7C-B2D0-82AACEE124F7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DestinationData]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].Columns[score_written]"
+                      cachedDataType="r8"
+                      cachedName="score_written"
+                      externalMetadataColumnId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].ExternalColumns[score_written]"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[score_written]" />
+                    <inputColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].Columns[with_written]"
+                      cachedDataType="bool"
+                      cachedName="with_written"
+                      externalMetadataColumnId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].ExternalColumns[with_written]"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[with_written]" />
+                    <inputColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].Columns[Bubble_sheet]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Bubble_sheet"
+                      externalMetadataColumnId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].ExternalColumns[bubble_sheet]"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[Bubble_sheet]" />
+                    <inputColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].Columns[CID]"
+                      cachedDataType="i4"
+                      cachedName="CID"
+                      externalMetadataColumnId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].ExternalColumns[C_id]"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[CID]" />
+                    <inputColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].Columns[Cname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Cname"
+                      externalMetadataColumnId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].ExternalColumns[C_name]"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[Cname]" />
+                    <inputColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].Columns[gradelevel]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="gradelevel"
+                      externalMetadataColumnId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].ExternalColumns[C_level]"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[gradelevel]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].ExternalColumns[C_key]"
+                      dataType="i4"
+                      name="C_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].ExternalColumns[C_id]"
+                      dataType="i4"
+                      name="C_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].ExternalColumns[C_name]"
+                      dataType="wstr"
+                      length="225"
+                      name="C_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].ExternalColumns[C_level]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="C_level" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].ExternalColumns[score_written]"
+                      dataType="r8"
+                      name="score_written" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].ExternalColumns[with_written]"
+                      dataType="bool"
+                      name="with_written" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input].ExternalColumns[bubble_sheet]"
+                      dataType="wstr"
+                      length="20"
+                      name="bubble_sheet" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-DimCourse-ETL\Destination Dim Course.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Destination Dim Course.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-DimCourse-ETL\Destination Dim Course.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-DimCourse-ETL\Source Course Table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source Course Table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CID,Cname,gradelevel,score_written,with_written,Bubble_sheet
+FROM Cources.cource</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-DimCourse-ETL\Source Course Table.Connections[OleDbConnection]"
+                  connectionManagerID="{898BEEEA-255C-4AD5-AC52-7B7E6BABE938}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SourceData]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[CID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].ExternalColumns[CID]"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[CID]"
+                      name="CID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[Cname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].ExternalColumns[Cname]"
+                      length="255"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[Cname]"
+                      name="Cname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[gradelevel]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].ExternalColumns[gradelevel]"
+                      length="1"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[gradelevel]"
+                      name="gradelevel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[score_written]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].ExternalColumns[score_written]"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[score_written]"
+                      name="score_written"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[with_written]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].ExternalColumns[with_written]"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[with_written]"
+                      name="with_written"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[Bubble_sheet]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].ExternalColumns[Bubble_sheet]"
+                      length="255"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].Columns[Bubble_sheet]"
+                      name="Bubble_sheet"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].ExternalColumns[CID]"
+                      dataType="i4"
+                      name="CID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].ExternalColumns[Cname]"
+                      dataType="wstr"
+                      length="255"
+                      name="Cname" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].ExternalColumns[gradelevel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="gradelevel" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].ExternalColumns[score_written]"
+                      dataType="r8"
+                      name="score_written" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].ExternalColumns[with_written]"
+                      dataType="bool"
+                      name="with_written" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output].ExternalColumns[Bubble_sheet]"
+                      dataType="wstr"
+                      length="255"
+                      name="Bubble_sheet" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[CID]"
+                      dataType="i4"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[CID]"
+                      name="CID" />
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[Cname]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[Cname]"
+                      name="Cname" />
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[gradelevel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[gradelevel]"
+                      name="gradelevel" />
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[score_written]"
+                      dataType="r8"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[score_written]"
+                      name="score_written" />
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[with_written]"
+                      dataType="bool"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[with_written]"
+                      name="with_written" />
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[Bubble_sheet]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[Bubble_sheet]"
+                      name="Bubble_sheet" />
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT-DimCourse-ETL.Paths[OLE DB Source Output]"
+              endId="Package\DFT-DimCourse-ETL\Destination Dim Course.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT-DimCourse-ETL\Source Course Table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="174,42"
+          Id="Package\DFT-DimCourse-ETL"
+          TopLeft="289,126" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT-DimCourse-ETL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DFT-DimCourse-ETL\Source Course Table"
+          TopLeft="254.5,33.5" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\DFT-DimCourse-ETL\Destination Dim Course"
+          TopLeft="262.5,116.5" />
+        <EdgeLayout
+          Id="Package\DFT-DimCourse-ETL.Paths[OLE DB Source Output]"
+          TopLeft="342.5,75.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15,41"
+              Start="0,0"
+              End="15,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
+                  <mssgle:LineSegment
+                    End="11,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11,20.5"
+                    Point2="15,20.5"
+                    Point3="15,24.5" />
+                  <mssgle:LineSegment
+                    End="15,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-DimCourse-ETL\Source Course Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-DimCourse-ETL\Destination Dim Course">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
